@@ -1,5 +1,5 @@
 {
-  "name": "contribute-to-sails101",
+  "name": "sails101-contribute-to-sails101",
   "version": "0.0.0",
   "description": "a Sails application",
   "keywords": [],
@@ -29,7 +29,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mikermcneil/foo.git"
+    "url": "git://github.com/sails101/contribute-to-sails101.git"
   },
   "author": "mikermcneil",
   "sails101": {
