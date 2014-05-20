@@ -1,4 +1,4 @@
-_create-a-tutorial-app
+contribute-to-sails101
 ======================
 
 ### How do I add a new Sails 101 tutorial app?
