@@ -1,7 +1,7 @@
 _create-a-tutorial-app
 ======================
 
-### How do I create a new tutorial app?
+### How do I add a new Sails 101 tutorial app?
 
 1. Fork this repository.
 2. Create a new sails101 tutorial. Try to keep things as conventional and simple as possible- the goal is make these tutorials concise and focused on one particular issue/question at a time (e.g. "How do I use the Jade view engine with Sails?")
