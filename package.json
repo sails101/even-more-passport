@@ -1,6 +1,5 @@
 {
-  "name": "sails101-tutorial-boilerplate",
-  "private": true,
+  "name": "contribute-to-sails101",
   "version": "0.0.0",
   "description": "a Sails application",
   "keywords": [],
@@ -33,5 +32,8 @@
     "url": "git://github.com/mikermcneil/foo.git"
   },
   "author": "mikermcneil",
-  "license": ""
+  "sails101": {
+    "label": "How do I add a new tutorial to Sails 101?"
+  },
+  "license": "MIT"
 }
