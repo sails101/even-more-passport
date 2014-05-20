@@ -1,7 +1,7 @@
 {
   "name": "sails101-contribute-to-sails101",
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "How do I add a new tutorial to Sails 101?",
   "keywords": [],
   "dependencies": {
     "sails": "~0.10.0-rc7",
@@ -32,8 +32,5 @@
     "url": "git://github.com/sails101/contribute-to-sails101.git"
   },
   "author": "mikermcneil",
-  "sails101": {
-    "label": "How do I add a new tutorial to Sails 101?"
-  },
   "license": "MIT"
 }
