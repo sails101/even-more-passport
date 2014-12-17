@@ -7,7 +7,7 @@ I am going to explain the step by step procedure for integrating Passport to you
  
 #### Steps
 
-Install the following npm modules:
+Step 1. **Install the following npm modules:**
 
 ``` shell
 npm install sails-generate-auth --save
@@ -19,19 +19,15 @@ npm install validator --save
 
 `passport-local` module is for local authentication strategy. `passport`, `bcryptjs` and `validator` and dependencies for `passport` and `sails-generate-auth`
 
-Now, all you have to do to integrate passport is to run the following command in your application:
+Step 2. **Now, all you have to do to integrate passport is to run the following command in your application:**
 
 ``` shell
 sails generate auth
 ```
 
-It automatically genearates all the files needed by passport.
+It automatically generates all the files needed by passport.
 
----
-
-Remove all the other strategies from `config/passport.js`.
-
-Add the following routes to `config/routes.rb`
+Step 3. **Add the following routes to `config/routes.rb`**
 
 ``` js
 'get /login': 'AuthController.login',
@@ -46,23 +42,32 @@ Add the following routes to `config/routes.rb`
 'get /auth/:provider/:action': 'AuthController.callback',
 ```
 
-Add the following to `config/bootstrap.js`
+Step 4. **Next, change your `config/bootstrap.js` to load your Passport providers on startup by adding the following line:**
 
 ``` js
 sails.services.passport.loadStrategies();
 ```
 
-In `config/policies.js`
+You can see a detailed explanation of the steps until this in [sails-generate-auth](https://github.com/kasperisager/sails-generate-auth/) page.
+
+Step 5. **Modify `config/sessionAuth.js` to set the policy for controller actions:**
 
 ``` js
-'*': ['passport', 'sessionAuth'],
-'auth': {
-  '*': ['passport']
+module.exports = function(req, res, next) {
+  if(req.user) return next();
+  res.redirect('/login');
+};
+```
+
+Step 6. **Now, make the following changes in `config/policies.js` to apply the `sessionAuth` policy to controllers:**
+
+``` js
+module.exports.policies = {
+  '*': ['passport', 'sessionAuth'],
+  'auth': {
+    '*': ['passport']
+  }
 }
 ``` 
 
-Modify `config/sessionAuth.js` with new policy
-
-
-
-
+Now you can lift your Sails application and see things in action! If you try to access [http://localhost:1337/flash/home](http://localhost:1337/flash/home), it will automatically redirect you to the login page ([http://localhost:1337/login](http://localhost:1337/register)). If you have not registered already, you can do that by going to [http://localhost:1337/register](http://localhost:1337/register)
