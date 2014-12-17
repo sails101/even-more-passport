@@ -1,7 +1,13 @@
-Authentication and Authorization using Passport JS
-==================================================
+Authentication and Authorization
+================================
 
-Install `sails-generate-auth` npm module. It is a module which makes the integration of Passport with Sails easier. Also install `passport-local`, local strategy for authentication using username and password.
+This is a Sails example application to demonstrate authentication and authorization using `Passport.js`. This explains how a user can authenticate with a username and password. And also explains API authentication using bearer tokens.
+
+I am going to explain the step by step procedure for integrating Passport to your Sails app usinga passport.js-based authentication generator called [sails-generate-auth](https://www.npmjs.com/package/sails-generate-auth)
+ 
+#### Steps
+
+Install the following npm modules:
 
 ``` shell
 npm install sails-generate-auth --save
@@ -11,24 +17,17 @@ npm install bcryptjs --save
 npm install validator --save
 ```
 
-Now, all you have to do to configure passport is this:
+`passport-local` module is for local authentication strategy. `passport`, `bcryptjs` and `validator` and dependencies for `passport` and `sails-generate-auth`
+
+Now, all you have to do to integrate passport is to run the following command in your application:
 
 ``` shell
 sails generate auth
 ```
 
-It automatically genearates the following files and directories:
+It automatically genearates all the files needed by passport.
 
-``` shell
-api/controllers/AuthController.js
-api/models/Passport.js
-api/models/User.js
-api/policies/passport.js
-api/services/passport.js
-api/services/protocols/
-config/passport.js
-views/auth/
-```
+---
 
 Remove all the other strategies from `config/passport.js`.
 
