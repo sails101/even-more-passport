@@ -11,9 +11,14 @@ module.exports = {
    * `FlashController.home()`
    */
   home: function (req, res) {
-    return res.json({
-      todo: 'home() is not implemented yet! But you are logged in :)'
-    });
+    Passport
+      .findOne({ protocol: 'local', user: req.user.id })
+      .exec(function(err, passport) {
+        return res.json({
+          todo: 'home() is not implemented yet! But you are logged in :)',
+          token: passport.accessToken
+        });
+      });
   },
 
   /**
