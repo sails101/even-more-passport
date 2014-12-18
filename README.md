@@ -3,6 +3,7 @@ Authentication and Authorization
 
 This is a Sails example application to demonstrate authentication and authorization using `Passport.js`. This explains how a user can authenticate with a username and password. And also explains API authentication using bearer tokens.
 
+---
 Let us start by seeing things working! Clone this repo, install all the required modules and lift the app:
 
 ``` shell
@@ -21,6 +22,8 @@ I've added two controller actions: `flash/home` and `flash/remotehome`.
 1. As a query param: Example: [http://localhost:1337/flash/remotehome?access_token=<token>](http://localhost:1337/flash/remotehome?access_token=<token>)
 2. In the body: Example: `access_token: <token>`
 3. In the header: Example: `Authorization: Bearer <token>`
+
+---
 
 I am going to explain the step by step procedure for integrating Passport to your Sails app usinga passport.js-based authentication generator called [sails-generate-auth](https://www.npmjs.com/package/sails-generate-auth)
  
