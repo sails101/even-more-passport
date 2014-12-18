@@ -19,6 +19,10 @@ module.exports.policies = {
   // Default policy for all controllers and actions
   // (`true` allows public access)
   '*': ['passport', 'sessionAuth'],
+
+  'flash': {
+    'remoteHome': ['passport', 'bearerAuth']
+  },
   
   'auth': {
     '*': ['passport']

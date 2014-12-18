@@ -61,7 +61,8 @@ var Passport = {
     provider   : { type: 'alphanumericdashed' },
     identifier : { type: 'string' },
     tokens     : { type: 'json' },
-
+    accessToken : { type: 'string' },
+    
     // Associations
     //
     // Associate every passport with one, and only one, user. This requires an

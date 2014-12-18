@@ -73,3 +73,15 @@ module.exports.policies = {
 Here you are applying, `sessionAuth` policy for all the controller actions except those in `AuthController`. Because auth actions like login, logout, register need to be accessed without logging in.
 
 Now, lift your Sails application and see things in action! If you try to access [http://localhost:1337/flash/home](http://localhost:1337/flash/home), it will automatically redirect you to the login page ([http://localhost:1337/login](http://localhost:1337/register)). If you have not registered already, you can do that by going to [http://localhost:1337/register](http://localhost:1337/register)
+
+Step 1: **Add accessToken attribute in Passport model**
+
+Step 2: **Write code to generate accessToken automatically when a user is created**
+
+Step 3: **Install `passport-http-bearer` module** and add it to `config/passport.js`**
+
+Step 4: **Load the strategy in `api/services/passport.js`**
+
+Step 5: Create a policy file in `api/policies` for APIs:
+
+Step 6: Add the policy for API controllers

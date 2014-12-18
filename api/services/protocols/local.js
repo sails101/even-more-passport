@@ -58,10 +58,12 @@ exports.register = function (req, res, next) {
       return next(err);
     }
 
+    var token = new Buffer(user.username + user.createdAt).toString('base64');
     Passport.create({
       protocol : 'local'
     , password : password
     , user     : user.id
+    , accessToken: token  
     }, function (err, passport) {
       if (err) {
         if (err.code === 'E_VALIDATION') {
