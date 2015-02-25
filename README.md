@@ -97,62 +97,7 @@ Here you are applying `sessionAuth` policy for all the controller actions except
 Now, lift your Sails application and see things in action! 
 
 ---
-
-Here are the steps for adding API authentication:
-
-Step 1: We have to create an access token when a user is created. For that, add a new attribute called `accessToken` in the model [api/models/passport.js](https://github.com/sails101/even-more-passport/blob/master/api/models/Passport.js#L64).
-
-Step 2: Now, we need to generate the accessToken once a user is created. For that, add the following code in [api/services/protocols/local.js](https://github.com/sails101/even-more-passport/blob/master/api/services/protocols/local.js#L61) and add the accessToken while [creating the passport](https://github.com/sails101/even-more-passport/blob/master/api/services/protocols/local.js#L66):
-
-``` js
-var token = new Buffer(user.username + user.createdAt).toString('base64');
-
-Passport.create({
- protocol : 'local',
- password : password,
- user     : user.id,
- accessToken: token  
-}, function (err, passport) { .. }
-```
-
-Step 3: Install `passport-http-bearer` module and add it to [config/passport.js](https://github.com/sails101/even-more-passport/blob/master/config/passport.js#L22)
-
-``` js
-bearer: {
- strategy: require('passport-http-bearer').Strategy
-}
-```
-
-Step 4: And load the strategy in [api/services/passport.js](https://github.com/sails101/even-more-passport/blob/master/api/services/passport.js#L295):
-
-``` js
-else if (key === 'bearer') {
- if (strategies.bearer) {
-  Strategy = strategies[key].strategy;
-  self.use(new Strategy(function(token, done) {
-        
-  Passport.findOne({ accessToken: token }, function(err, passport) {
-   if (err) { return done(err); }
-   if (!passport) { return done(null, false); }
-   User.findById(passport.user, function(err, user) {
-    if (err) { return done(err); }
-    if (!user) { return done(null, false); }
-    return done(null, user, { scope: 'all' });
-   });
-  });
- }));
-}
-```
-
-Step 5: Create a policy file [api/policies/bearerAuth.js](https://github.com/sails101/even-more-passport/blob/master/api/policies/bearerAuth.js) for APIs:
-
-``` js
-module.exports = function(req, res, next) {
- return passport.authenticate('bearer', { session: false })(req, res, next);
-};
-```
-
-Step 6: Add the policy for controller actions that are accessed via API in [config/policies.js](https://github.com/sails101/even-more-passport/blob/master/config/policies.js#L23):
+For API authorization, add `bearerAuth` the policy for controller actions that are accessed via API in [config/policies.js](https://github.com/sails101/even-more-passport/blob/master/config/policies.js#L23):
 
 ``` js
 'flash': {
