@@ -72,7 +72,7 @@ sails.services.passport.loadStrategies();
 
 You can see a detailed explanation of the steps until this in [sails-generate-auth](https://github.com/kasperisager/sails-generate-auth/) page.
 
-Step 5. Modify `config/sessionAuth.js` to set the policy for controller actions:
+Step 5. Modify `api/policies/sessionAuth.js` to set the policy for controller actions:
 
 ``` js
 module.exports = function(req, res, next) {
