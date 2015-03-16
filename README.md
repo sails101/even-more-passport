@@ -49,7 +49,7 @@ sails generate auth
 
 It automatically generates all the files needed by passport.
 
-Step 3. Add the following routes to `config/routes.rb`
+Step 3. Add the following routes to `config/routes.js`
 
 ``` js
 'get /login': 'AuthController.login',
