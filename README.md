@@ -98,6 +98,6 @@ Now, lift your Sails application and see things in action!
 
 ---
 
--For API authorization, add `bearerAuth` the policy for controller actions that are accessed via API in [config/policies.js](https://github.com/sails101/even-more-passport/blob/master/config/policies.js#L23):
+For API authorization, add `bearerAuth` the policy for controller actions that are accessed via API in [config/policies.js](https://github.com/sails101/even-more-passport/blob/master/config/policies.js#L23):
 
 If you have any questions or encounter any problems, feel free to raise an issue in this repo. I'll help you to resolve it.
