@@ -13,6 +13,8 @@ npm install
 sails lift
 ```
 
+Or see it live here: [even-more-passport](https://even-more-passport.herokuapp.com/)
+
 I've added two controller actions: `flash/home` and `flash/remotehome`.
 
 [http://localhost:1337/flash/home](http://localhost:1337/flash/home) cannot be accessed without logging in. You will be redirected to login page ([http://localhost:1337/login](http://localhost:1337/login)). You can register for a new account at [http://localhost:1337/register](http://localhost:1337/register).
