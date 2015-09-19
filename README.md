@@ -39,9 +39,10 @@ npm install passport-local --save
 npm install passport --save
 npm install bcryptjs --save
 npm install validator --save
+npm install passport-http-bearer --save
 ```
 
-`passport-local` module is for local authentication strategy. `passport`, `bcryptjs` and `validator` and dependencies for `passport` and `sails-generate-auth`
+`passport-local` module is for local authentication strategy. `passport`, `bcryptjs` and `validator` and dependencies for `passport` and `sails-generate-auth`. `passport-http-bearer` is for authenticating APIs using token.
 
 Step 2. Now, all you have to do to integrate passport is to run the following command in your application:
 
